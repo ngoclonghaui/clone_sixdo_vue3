@@ -34,7 +34,6 @@
             style="
               text-decoration: none;
               display: flex;
-              display: flexbox;
               font-size: 15px;
               color: black;
             "

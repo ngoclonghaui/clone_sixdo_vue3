@@ -1,8 +1,8 @@
 <template>
-  <v-dialog v-model="show_dialog" width="1000px" height="800px">
+  <v-dialog v-model="show_dialog" width="auto" height="auto">
     <v-card>
-      <v-row>
-        <v-btn>
+      <v-row style="display: inline-block">
+        <v-btn @click="closeDialog()" class="button">
           <v-icon> mdi-close </v-icon>
         </v-btn>
       </v-row>
@@ -16,14 +16,22 @@
       <v-card-text>
         <v-tab-items v-model="tab">
           <v-tab-item key="'first'" @click="abc()">
-            {{ 123 }}
             <v-card-text> Tai app Sixdo nhan ngay voucher </v-card-text>
-            <v-img
-              src="https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/316421671_1772397633158616_3741267832339082495_n.jpg?stp=cp6_dst-jpg&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RGGNthABdR8AX8cUHRE&_nc_ht=scontent.fhan5-2.fna&oh=00_AfCMEkzlowHtrG1G5ByA5oKd18b8a7ds-DVlGK5xNKb8Ww&oe=654E4C14"
-              max-width="300px"
-              height="300px"
-            >
-            </v-img>
+          </v-tab-item>
+          <v-tab-item key="'second'">
+            <v-form>
+              <v-text-field
+                v-model="Email"
+                :rules="rules"
+                label="Email"
+              ></v-text-field>
+              <v-text-field
+                v-model="password"
+                :rules="password_rule"
+                label="Mat khau"
+              ></v-text-field>
+              <v-btn type="submit" block class="mt-2">Submit</v-btn>
+            </v-form>
           </v-tab-item>
         </v-tab-items>
       </v-card-text>
@@ -49,12 +57,21 @@ export default {
     abc() {
       alert("123");
     },
+    closeDialog() {
+      this.show_dialog = false;
+    },
   },
 };
 </script>
 
 <style>
 .text1 {
+  background: #000;
   text-transform: uppercase;
+}
+.button {
+  float: right;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 </style>

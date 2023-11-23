@@ -13,7 +13,7 @@
         >
           <v-card-text class="pa-0" style="height: 650px; padding-left: 100px">
             <router-link
-              :to="{ name: 'productDetails', params: { id: item.id } }"
+              to="/productdetail/{{ item.id }}"
             >
               <v-img
                 :src="item.currentImg"
